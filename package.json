@@ -1,0 +1,13 @@
+{
+  "name": "APPNAME",
+  "author": "kingllama",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependancies": {},
+  "dependencies": {
+    "express": "~4.13.1",
+    "ejs": "~2.3.3"
+  }
+}

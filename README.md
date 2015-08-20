@@ -1,0 +1,1 @@
+An express skeleton that makes writing for express very coder-friendly.
