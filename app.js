@@ -27,13 +27,14 @@ render = {
     // },
 };
 
+// the code that actually registers the routes.
 var register = function(method,route,controller) {
     return app[method](route,function(req,res){
         controller(req,res);
     }); 
 };
 
-//links urls with controllers
+//loops through your routes; controllers, and registers them.
 var routes = require('./routes')(c);
 for (var route in routes) {
     var controllers = routes[route];
@@ -44,21 +45,20 @@ for (var route in routes) {
     }
 };
 
-
+//404 error fallback.
 app.use(function(req, res, next){
   res.status(404);
-
   // respond with html page
   if (req.accepts('html')) {
     res.render('404.ejs', { url: req.url });
     return;
   }
-
+  //or dont...
   res.type('txt').send('404, page not found');
 });
 
 
-var server = app.listen(2001, function(){
+var server = app.listen(3000, function(){
   var host = server.address().address;
   var port = server.address().port;
   console.log('App listening at http://%s:%s', host, port)
